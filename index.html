@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BurnIT Corner | Premium Grill & Smokehouse | Hammanskraal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Colors & Typography */
+        :root {
+            --charcoal-black: #0F0F0F;
+            --espresso-brown: #2B1B14;
+            --gold-brass: #C9A24D;
+            --burgundy: #5A1A1A;
+            --soft-cream: #F5F2ED;
+            --text-light: #F5F2ED;
+            --text-dark: #1A1A1A;
+            
+            --heading-font: 'Cinzel', serif;
+            --body-font: 'Inter', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            color: var(--text-light);
+            background-color: var(--charcoal-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold-brass);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-sm);
+            font-weight: 300;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        section {
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold-brass);
+            color: var(--espresso-brown);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--body-font);
+        }
+        
+        .btn:hover {
+            background-color: var(--soft-cream);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(201, 162, 77, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--gold-brass);
+            border: 2px solid var(--gold-brass);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(201, 162, 77, 0.1);
+        }
+        
+        .gold-text {
+            color: var(--gold-brass);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid rgba(90, 26, 26, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-brass);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        .nav-links a {
+            font-weight: 400;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold-brass);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold-brass);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--soft-cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Typing Animation Styles */
+        .typing-container {
+            display: inline-block;
+        }
+        
+        .typed-text {
+            color: var(--gold-brass);
+            font-weight: 700;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--gold-brass);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-bottom.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(43, 27, 20, 0.9)), 
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: var(--spacing-md);
+            z-index: 1;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--spacing-sm);
+            min-height: 180px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--espresso-brown);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            text-align: left;
+        }
+        
+        .about-text h2:after {
+            left: 0;
+            transform: none;
+        }
+        
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+        }
+        
+        /* Menu Section - Mobile First Design */
+        .menu {
+            background-color: var(--charcoal-black);
+        }
+        
+        .menu-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .menu-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .menu-nav-btn {
+            background: none;
+            border: 2px solid var(--burgundy);
+            color: var(--soft-cream);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        
+        .menu-nav-btn.active, .menu-nav-btn:hover {
+            background-color: var(--burgundy);
+            color: var(--soft-cream);
+            border-color: var(--burgundy);
+        }
+        
+        .menu-carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .menu-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-category-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .menu-item-card {
+            background-color: var(--espresso-brown);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .menu-item-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-item-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: var(--spacing-md);
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .item-name {
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        
+        .item-price {
+            color: var(--gold-brass);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .item-description {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: var(--spacing-sm);
+            min-height: 60px;
+        }
+        
+        .special-badge {
+            display: inline-block;
+            background-color: var(--burgundy);
+            color: var(--soft-cream);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-top: var(--spacing-xs);
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .carousel-btn {
+            background-color: var(--burgundy);
+            color: var(--soft-cream);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .carousel-btn:hover {
+            background-color: var(--gold-brass);
+            color: var(--espresso-brown);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(90, 26, 26, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--burgundy);
+            transform: scale(1.2);
+        }
+        
+        /* Gallery Section - Photo Album Layout */
+        .gallery {
+            background-color: var(--espresso-brown);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .photo-album {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .photo-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .photo-item:hover .photo-img {
+            transform: scale(1.05);
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(15, 15, 15, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--spacing-md);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+        
+        /* Modal for enlarged image view */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-md);
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: var(--soft-cream);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            color: var(--gold-brass);
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 var(--spacing-md);
+        }
+        
+        .modal-nav-btn {
+            background-color: rgba(90, 26, 26, 0.7);
+            color: var(--soft-cream);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .modal-nav-btn:hover {
+            background-color: var(--gold-brass);
+            color: var(--espresso-brown);
+        }
+        
+        /* Location Section */
+        .location {
+            background-color: var(--charcoal-black);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .info-block h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .info-block i {
+            color: var(--gold-brass);
+            width: 24px;
+            text-align: center;
+        }
+        
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+            position: relative;
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: var(--espresso-brown);
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+        
+        .cta h2 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--charcoal-black);
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            border-top: 1px solid rgba(90, 26, 26, 0.3);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--espresso-brown);
+            color: var(--gold-brass);
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--gold-brass);
+            color: var(--espresso-brown);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles - Mobile First */
+        @media (max-width: 768px) {
+            section {
+                padding: var(--spacing-lg) var(--spacing-sm);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .navbar {
+                padding: var(--spacing-sm) 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--charcoal-black);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: var(--spacing-lg);
+                gap: var(--spacing-md);
+                transform: translateX(100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                min-height: 150px;
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .about-text h2 {
+                text-align: center;
+            }
+            
+            .about-text h2:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .about-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            .menu-nav {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+                margin-bottom: var(--spacing-md);
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .menu-nav::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .menu-nav::-webkit-scrollbar-track {
+                background: rgba(90, 26, 26, 0.1);
+                border-radius: 10px;
+            }
+            
+            .menu-nav::-webkit-scrollbar-thumb {
+                background: var(--burgundy);
+                border-radius: 10px;
+            }
+            
+            .menu-nav-btn {
+                flex-shrink: 0;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .menu-category-slide {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            .menu-item-img {
+                height: 180px;
+            }
+            
+            .carousel-nav {
+                gap: var(--spacing-sm);
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .photo-album {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            .photo-item {
+                height: 220px;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .map-container {
+                height: 300px;
+                order: -1;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .modal-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .menu-category-slide {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--spacing-lg);
+            }
+            
+            .photo-album {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .photo-item {
+                height: 280px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .about-text h2,
+            .location-info h2 {
+                text-align: left;
+            }
+            
+            .about-text h2:after {
+                left: 0;
+                transform: none;
+            }
+            
+            .about-image {
+                order: 0;
+            }
+            
+            .map-container {
+                order: 0;
+            }
+            
+            .photo-album {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .photo-album {
+                grid-template-columns: repeat(4, 1fr);
+                gap: var(--spacing-lg);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 600px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                min-height: 120px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .menu-nav {
+                gap: 8px;
+            }
+            
+            .menu-nav-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .photo-item {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BurnIT Corner</div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#menu">Menu</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#location">Location</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="fade-in">
+                <h1>
+                    <div>Premium Grilled Flavours</div>
+                    <div class="typing-container">
+                        in <span class="typed-text" id="typed-text"></span><span class="cursor" id="cursor">|</span>
+                    </div>
+                </h1>
+                <p>Slow-grilled ribs, juicy burgers, bold flavours - a luxury smokehouse experience in the heart of Gauteng</p>
+                <a href="#menu" class="btn">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-left">
+                    <h2>Our <span class="gold-text">Flame-Grilled</span> Story</h2>
+                    <p>At <span class="gold-text">BurnIT Corner</span>, we believe exceptional food begins with fire. Our passion for authentic smokehouse flavours meets the vibrant spirit of Hammanskraal, Gauteng.</p>
+                    <p>Founded in 2020 by two friends with a shared love for authentic South African braai culture, BurnIT Corner has grown from a local favorite to a premier dining destination. We combine traditional smoking techniques with modern culinary innovation.</p>
+                    <p>Our commitment is to source the finest local ingredients, supporting Gauteng farmers and producers. Each dish is crafted to deliver a bold, unforgettable experience that honours our South African heritage.</p>
+                    <p>From our signature slow-smoked ribs to our gourmet burgers, every bite tells a story of dedication, quality, and local pride.</p>
+                </div>
+                <div class="about-image fade-right"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section - Mobile Optimized -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="menu-header">
+                <h2>Our <span class="gold-text">Premium</span> Menu</h2>
+                <p class="section-subtitle">Carefully crafted dishes featuring our signature smoked flavours and gourmet combinations</p>
+            </div>
+            
+            <div class="menu-nav" id="menuNav">
+                <button class="menu-nav-btn active" data-category="ribs">Signature Ribs</button>
+                <button class="menu-nav-btn" data-category="burgers">Gourmet Burgers</button>
+                <button class="menu-nav-btn" data-category="sides">Sides & Chips</button>
+                <button class="menu-nav-btn" data-category="combos">Combos</button>
+                <button class="menu-nav-btn" data-category="drinks">Drinks</button>
+            </div>
+            
+            <div class="menu-carousel-container">
+                <div class="menu-carousel" id="menuCarousel">
+                    <!-- Signature Ribs Category -->
+                    <div class="menu-category-slide" data-category="ribs">
+                        <div class="menu-item-card fade-bottom">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Smoked Ribs" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div>
+                                        <div class="item-name">Classic Smoked Ribs</div>
+                                        <div class="special-badge">House Special</div>
+                                    </div>
+                                    <div class="item-price">R185</div>
+                                </div>
+                                <p class="item-description">Slow-smoked for 8 hours with our secret spice blend, served with homemade BBQ sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.1s">
+                            <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Honey BBQ Ribs" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Honey BBQ Glazed Ribs</div>
+                                    <div class="item-price">R195</div>
+                                </div>
+                                <p class="item-description">Tender ribs glazed with our signature honey BBQ sauce, topped with toasted sesame seeds</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.2s">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Spicy Peri-Peri Ribs" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Spicy Peri-Peri Ribs</div>
+                                    <div class="item-price">R190</div>
+                                </div>
+                                <p class="item-description">For the brave - ribs marinated in authentic African peri-peri sauce with a fiery kick</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gourmet Burgers Category -->
+                    <div class="menu-category-slide" data-category="burgers">
+                        <div class="menu-item-card fade-bottom">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smokehouse Burger" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div>
+                                        <div class="item-name">Smokehouse Burger</div>
+                                        <div class="special-badge">Best Seller</div>
+                                    </div>
+                                    <div class="item-price">R120</div>
+                                </div>
+                                <p class="item-description">200g grass-fed beef patty with smoked cheddar, crispy bacon, onion rings & signature sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.1s">
+                            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Double Cheese Burger" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Double Cheese & Bacon Burger</div>
+                                    <div class="item-price">R135</div>
+                                </div>
+                                <p class="item-description">Two juicy beef patties with double cheddar, crispy bacon, lettuce, tomato and pickles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.2s">
+                            <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mushroom Swiss Burger" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Mushroom & Swiss Burger</div>
+                                    <div class="item-price">R115</div>
+                                </div>
+                                <p class="item-description">Beef patty topped with sautéed mushrooms, melted Swiss cheese and garlic aioli</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sides Category -->
+                    <div class="menu-category-slide" data-category="sides">
+                        <div class="menu-item-card fade-bottom">
+                            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hand-cut Chips" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Hand-cut Chips</div>
+                                    <div class="item-price">R40</div>
+                                </div>
+                                <p class="item-description">Crispy hand-cut potato fries seasoned with rosemary and sea salt</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.1s">
+                            <img src="https://images.unsplash.com/photo-1606755456206-b25206b8afc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Onion Rings" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Crispy Onion Rings</div>
+                                    <div class="item-price">R45</div>
+                                </div>
+                                <p class="item-description">Golden crispy onion rings with our special batter and dipping sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.2s">
+                            <img src="https://images.unsplash.com/photo-1579306194871-64c6b0b49c77?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coleslaw" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Fresh Coleslaw</div>
+                                    <div class="item-price">R35</div>
+                                </div>
+                                <p class="item-description">Fresh cabbage and carrot slaw with our signature creamy dressing</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Combos Category -->
+                    <div class="menu-category-slide" data-category="combos">
+                        <div class="menu-item-card fade-bottom">
+                            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ribs & Chips Combo" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Ribs & Chips Combo</div>
+                                    <div class="item-price">R210</div>
+                                </div>
+                                <p class="item-description">Half rack of ribs with hand-cut chips and your choice of sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.1s">
+                            <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Burger Combo" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Burger, Chips & Drink</div>
+                                    <div class="item-price">R145</div>
+                                </div>
+                                <p class="item-description">Any gourmet burger with chips and a soft drink or craft beer</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.2s">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Family Feast" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Family Feast (Serves 4)</div>
+                                    <div class="item-price">R650</div>
+                                </div>
+                                <p class="item-description">Full rack of ribs, 2 burgers, 4 sides, and 4 drinks - perfect for sharing</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Drinks Category -->
+                    <div class="menu-category-slide" data-category="drinks">
+                        <div class="menu-item-card fade-bottom">
+                            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Craft Beers" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Local Craft Beers</div>
+                                    <div class="item-price">R45</div>
+                                </div>
+                                <p class="item-description">Selection of South African craft beers on tap</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.1s">
+                            <img src="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wine Selection" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">South African Wine</div>
+                                    <div class="item-price">R65</div>
+                                </div>
+                                <p class="item-description">Carefully selected local reds, whites and rosés by the glass</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item-card fade-bottom" style="transition-delay: 0.2s">
+                            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Soft Drinks" class="menu-item-img">
+                            <div class="menu-item-content">
+                                <div class="menu-item-header">
+                                    <div class="item-name">Soft Drinks & Juices</div>
+                                    <div class="item-price">R25</div>
+                                </div>
+                                <p class="item-description">Assorted soft drinks, fresh juices and bottled water</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="carousel-dots" id="carouselDots">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
+                    <div class="carousel-dot" data-slide="4"></div>
+                </div>
+                
+                <button class="carousel-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section - Photo Album Layout -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Our <span class="gold-text">Culinary</span> Art</h2>
+            <p class="section-subtitle">Browse through our photo album showcasing premium smokehouse creations</p>
+            
+            <div class="photo-album">
+                <div class="photo-item fade-bottom" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Smoked Ribs" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Classic Smoked Ribs</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="1" style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smokehouse Burger" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Smokehouse Burger</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="2" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Honey BBQ Ribs" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Honey BBQ Ribs</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="3" style="transition-delay: 0.3s">
+                    <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Double Cheese Burger" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Double Cheese Burger</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="4" style="transition-delay: 0.4s">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Spicy Peri-Peri Ribs" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Spicy Peri-Peri Ribs</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="5" style="transition-delay: 0.5s">
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mushroom Swiss Burger" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Mushroom Swiss Burger</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="6" style="transition-delay: 0.6s">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ribs & Chips Combo" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Ribs & Chips Combo</h3>
+                    </div>
+                </div>
+                
+                <div class="photo-item fade-bottom" data-index="7" style="transition-delay: 0.7s">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hand-cut Chips" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3>Hand-cut Chips</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-content">
+            <img src="" alt="" class="modal-img" id="modalImg">
+            <div class="modal-nav">
+                <button class="modal-nav-btn" id="modalPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="modal-nav-btn" id="modalNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2>Visit <span class="gold-text">BurnIT Corner</span></h2>
+            <p class="section-subtitle">Experience premium smokehouse flavours in the heart of Hammanskraal</p>
+            
+            <div class="location-content">
+                <div class="location-info fade-left">
+                    <div class="info-block">
+                        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                        <p>BurnIT Corner Smokehouse<br>Hammanskraal, Gauteng<br>South Africa, 0400</p>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+                        <p>Monday - Thursday: 11:00 AM - 9:00 PM</p>
+                        <p>Friday - Saturday: 11:00 AM - 10:00 PM</p>
+                        <p>Sunday: 12:00 PM - 8:00 PM</p>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h3><i class="fas fa-phone"></i> Contact Us</h3>
+                        <p>Phone: +27 12 345 6789</p>
+                        <p>Email: info@burnitcorner.co.za</p>
+                    </div>
+                </div>
+                
+                <div class="map-container fade-right">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to <span class="gold-text">Taste Excellence</span>?</h2>
+            <p class="section-subtitle">Order now for delivery, takeaway, or book a table for an unforgettable smokehouse experience</p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/27123456789?text=Hi%20BurnIT%20Corner%2C%20I'd%20like%20to%20place%20an%20order" class="btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+                <a href="tel:+27123456789" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call to Book
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">BurnIT Corner</div>
+                <p>Premium Grill & Smokehouse | Hammanskraal, Gauteng</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2023 BurnIT Corner. All rights reserved. | Crafted with passion for premium smokehouse flavours</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet.js for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // Typing Animation
+        const typedTextSpan = document.getElementById("typed-text");
+        const cursorSpan = document.getElementById("cursor");
+        
+        const textArray = ["Hammanskraal", "Gauteng", "Hammanskraal"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 1500;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+        
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+        
+        function erase() {
+            if (charIndex > 0) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if(textArrayIndex>=textArray.length) textArrayIndex=0;
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            if(textArray.length) setTimeout(type, newTextDelay + 500);
+            
+            // Mobile Navigation Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Menu Carousel Functionality
+            const menuNavBtns = document.querySelectorAll('.menu-nav-btn');
+            const menuCarousel = document.getElementById('menuCarousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const carouselDots = document.querySelectorAll('.carousel-dot');
+            const slides = document.querySelectorAll('.menu-category-slide');
+            let currentSlide = 0;
+            
+            // Initialize map position for Hammanskraal, Gauteng
+            const map = L.map('map').setView([-25.4050, 28.0969], 15);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Add a marker for the restaurant location
+            const restaurantMarker = L.marker([-25.4050, 28.0969]).addTo(map);
+            restaurantMarker.bindPopup("<b>BurnIT Corner Smokehouse</b><br>Hammanskraal, Gauteng").openPopup();
+            
+            // Menu Navigation
+            function goToSlide(slideIndex) {
+                // Update carousel position
+                menuCarousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+                
+                // Update active menu nav button
+                menuNavBtns.forEach((btn, index) => {
+                    if (index === slideIndex) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Update active carousel dot
+                carouselDots.forEach((dot, index) => {
+                    if (index === slideIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                // Update current slide
+                currentSlide = slideIndex;
+            }
+            
+            // Set up menu category buttons
+            menuNavBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    goToSlide(index);
+                });
+            });
+            
+            // Set up carousel dots
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    goToSlide(index);
+                });
+            });
+            
+            // Set up carousel navigation buttons
+            prevBtn.addEventListener('click', function() {
+                let newSlide = currentSlide - 1;
+                if (newSlide < 0) newSlide = slides.length - 1;
+                goToSlide(newSlide);
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                let newSlide = currentSlide + 1;
+                if (newSlide >= slides.length) newSlide = 0;
+                goToSlide(newSlide);
+            });
+            
+            // Gallery Photo Album Functionality
+            const photoItems = document.querySelectorAll('.photo-item');
+            const imageModal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalClose = document.getElementById('modalClose');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+            let currentImageIndex = 0;
+            
+            // Create an array of image sources and alt texts
+            const galleryImages = [];
+            photoItems.forEach(item => {
+                const img = item.querySelector('.photo-img');
+                galleryImages.push({
+                    src: img.src,
+                    alt: img.alt
+                });
+            });
+            
+            // Open modal when clicking on a photo
+            photoItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    currentImageIndex = parseInt(this.getAttribute('data-index'));
+                    updateModalImage();
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Close modal
+            modalClose.addEventListener('click', function() {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside the image
+            imageModal.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    imageModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Navigation in modal
+            modalPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateModalImage();
+            });
+            
+            modalNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                updateModalImage();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (imageModal.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        imageModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                        updateModalImage();
+                    } else if (e.key === 'ArrowRight') {
+                        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                        updateModalImage();
+                    }
+                }
+            });
+            
+            function updateModalImage() {
+                const image = galleryImages[currentImageIndex];
+                modalImg.src = image.src;
+                modalImg.alt = image.alt;
+            }
+            
+            // Make menu nav horizontally scrollable on mobile
+            const menuNav = document.getElementById('menuNav');
+            if (window.innerWidth <= 768) {
+                menuNav.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    this.scrollLeft += e.deltaY;
+                });
+            }
+            
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // For staggered animations
+                        const delay = entry.target.getAttribute('data-delay');
+                        if (delay) {
+                            entry.target.style.transitionDelay = delay;
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all elements with animation classes
+            const animatedElements = document.querySelectorAll('.fade-in, .fade-left, .fade-right, .fade-bottom');
+            animatedElements.forEach(el => observer.observe(el));
+            
+            // Trigger hero animation on load
+            setTimeout(() => {
+                const heroContent = document.querySelector('.hero .fade-in');
+                if (heroContent) heroContent.classList.add('visible');
+            }, 300);
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add hover effect to menu cards
+            const menuItemCards = document.querySelectorAll('.menu-item-card');
+            menuItemCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Social media links placeholder
+            document.querySelectorAll('.social-icon').forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Social media links would be connected here');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
